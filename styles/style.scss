@@ -1,0 +1,316 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* 右側滑動條 Scrollbar，只有 chrome 瀏覽器支援 */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(38, 241, 225);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(240, 29, 29);
+}
+
+/* 
+  高度設定:
+    高度設定若不是一個確切的值，例: 200px, 50vh
+    只使用 100% 的話，會變成只有內容的高度 100%，
+    因此想要設定為瀏覽器高度的 50% 時
+    在最前面要先定義，
+    htme, body {
+      height: 100%
+    }
+    這樣內容中的 height 才會知道要以瀏覽器的整體高度作依據。
+    其實純用 vh 就不用再增加這些多的設定，也可達到其效果
+*/
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: inset 0 0 10px #a8a8a8; /* 在最上方導覽列加上陰影，以區分界線 */
+  div.title {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    img {
+      width: 5vw; /* 大小可以使用 vw 來改 */
+      height: 5vw;
+      margin-right: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    li a {
+      text-decoration: none;
+      color: black;
+      font-size: 1.3rem;
+      list-style-type: none;
+      padding: 1rem;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: darkgrey;
+        color: white;
+        border-radius: 5px;
+      }
+      &.active {
+        background-color: darkgrey;
+        color: white;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+main {
+  section.page1 {
+    width: 100%;
+    min-height: 86vh; /* 可以以螢幕比例設定最小高度 */
+    background-image: url("../Pictures/background.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      font-weight: bold;
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 5rem;
+      text-align: center;
+    }
+    a {
+      background-color: #0ddcd0;
+      border-radius: 1rem; /* border-radius 也可使用 rem */
+      display: flex;
+      text-decoration: none;
+      color: blue;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 1rem 1.4rem; /* 左右的空間可以大一點 */
+      transition: all 0.25s ease;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+  section.page2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      margin: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    div.picture {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      div.pic {
+        padding: 1.5rem;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+
+        /* 製作游標移到相片上時，放大的特效，使用 transform 和 overflow 的設定 */
+        span.container {
+          border-radius: 50%;
+          width: 100%;
+          overflow: hidden;
+          img {
+            width: 100%;
+            transition: all 0.2s;
+          }
+          img:hover {
+            transform: scale(1.2);
+          }
+        }
+
+        h3 {
+          font-size: 1.6rem;
+          font-weight: bold;
+          margin: 0.8rem;
+        }
+        p {
+          font-size: 1.2rem;
+          margin: 0.8rem;
+        }
+        div {
+          background-color: #0a5ec0;
+          border-radius: 10px;
+          display: flex;
+          margin: 1rem;
+          a {
+            color: white;
+            display: flex;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 0.8rem 1.2rem;
+            &:hover {
+              color: yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: #00d1ff;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  div.footerIcon ul {
+    padding-top: 1.2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    li {
+      padding: 2rem;
+      list-style-type: none;
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.6rem;
+        font-weight: bold;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+  div.footerSNS ul {
+    display: flex;
+    justify-content: space-evenly;
+    li {
+      padding: 1rem;
+      list-style-type: none;
+      display: flex;
+      width: 100%;
+      img {
+        width: 80%;
+      }
+    }
+  }
+  div.footerTitle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    img {
+      width: 5%;
+    }
+    h2 {
+      padding: 1rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  header {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    position: static;
+    div.title {
+      justify-content: center;
+      img {
+        width: 10vw;
+        height: 10vw;
+      }
+    }
+    nav {
+      width: 100%;
+    }
+    nav ul {
+      width: 100%;
+      border: 1px solid black;
+      flex-direction: column;
+      li {
+        width: 100%;
+        padding: 1rem;
+        background-color: darkgray;
+        text-align: center;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+  main {
+    text-align: center;
+    section.page2 {
+      div.picture {
+        flex-wrap: wrap;
+      }
+    }
+  }
+  footer {
+    div.footerIcon ul {
+      flex-wrap: wrap;
+    }
+    div.footerSNS {
+      flex-wrap: wrap;
+    }
+    div.footerTitle img {
+      width: 9%;
+    }
+  }
+}
